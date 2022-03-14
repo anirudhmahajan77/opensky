@@ -109,11 +109,19 @@ searchInput:hover{
     border-right:0px;
 }
 
-
+.clear{
+    background-color: white;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    height: 2.5em;
+    width: 1em;
+    font-size: larger;
+}
 
 .mic{
-    height: 3em;
-    width: 3em;
+    height: 2.5em;
+    width: 2em;
+    font-size: larger;
     border-top: 1px solid #111;
     border-bottom: 1px solid #111;
     background-color: white;
@@ -125,10 +133,17 @@ searchInput:hover{
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
 }
-
+.s{
+    display: flex;
+    justify-items: center;
+    flex-direction: row;
+    align-items: center;
+}
 .search{
-    height: 3em;
-    width: 3em;
+    height: 2.5em;
+    width: 2em;
+    padding-right: 0.5em;
+    font-size: larger;
     background-color: white;
     border-top: 1px solid #111;
     border-bottom: 1px solid #111;

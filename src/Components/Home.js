@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Style/Home.module.css";
 import logo from "../Asset/opensky.svg";
-import { FiMic, FiSearch } from "react-icons/fi";
+import { FiMic, FiSearch, FiX } from "react-icons/fi";
 
 class Home extends React.Component {
 
@@ -33,8 +33,10 @@ class Home extends React.Component {
                     <div className={styles.content}>
                         <div className={styles.logo} data-img-url={logo}></div>
                         <div className={styles.searchBar}>
+                            <div className={styles.s}>
                             <input
                                 type="text"
+                                value={this.state.city}
                                 placeholder={`Search Any Location Eg."Jammu"`}
                                 onChange={this.updateLocation}
                                 onKeyPress={(e)=>{
@@ -43,6 +45,10 @@ class Home extends React.Component {
                                     }
                                 }}
                                 className={styles.searchInput} />
+                                {this.state.city.length > 0 ? 
+                                    <FiX onClick={()=>{this.setState({city:""})}} className={styles.clear}/>
+                                    : <p className={styles.clear}></p>}
+                            </div>
                             <div className={styles.mic}>
                                 <FiMic />
                             </div>
