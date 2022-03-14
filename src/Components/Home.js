@@ -1,71 +1,59 @@
-import React from "react";
-import styles from "../Style/Home.module.css";
+import {React, useState} from "react";
+import "../Style/Home.css";
 import logo from "../Asset/opensky.svg";
 import { FiMic, FiSearch, FiX } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
-class Home extends React.Component {
-
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            city: "",
-        }
+const Home = () => {
+    const navigate = useNavigate();
+    let [city,setCity]= useState("");
+    function updateLocation(e){
+        setCity(e.target.value);
     }
 
-    updateLocation = (e) => {
-        this.setState({
-            city: e.target.value
-        })
+    function searchCity(e){
+        navigate('/weather/'+city);
     }
 
-    searchCity = (e) => {
-        
-        alert(this.state.city)
-    }
-
-    render() {
-        return (
-            <div className={styles.home}>
-                <div className={styles.design}>
-                </div>
-                <div className={styles.glass}>
-                    <div className={styles.content}>
-                        <div className={styles.logo} data-img-url={logo}></div>
-                        <div className={styles.searchBar}>
-                            <div className={styles.s}>
+    return (
+        <div className="home">
+            <div className="design">
+            </div>
+            <div className="glass">
+                <div className="content">
+                    <div className="logo" data-img-url={logo}></div>
+                    <div className="searchBar">
+                        <div className="s">
                             <input
                                 type="text"
-                                value={this.state.city}
+                                value={city}
                                 placeholder={`Search Any Location Eg."Jammu"`}
-                                onChange={this.updateLocation}
-                                onKeyPress={(e)=>{
-                                    if(e.key === 'Enter'){
-                                        this.searchCity()
+                                onChange={updateLocation}
+                                onKeyPress={(e) => {
+                                    if (e.key === 'Enter') {
+                                        searchCity()
                                     }
                                 }}
-                                className={styles.searchInput} />
-                                {this.state.city.length > 0 ? 
-                                    <FiX onClick={()=>{this.setState({city:""})}} className={styles.clear}/>
-                                    : <p className={styles.clear}></p>}
-                            </div>
-                            <div className={styles.mic}>
-                                <FiMic />
-                            </div>
-                            <div className={styles.search}
-                            onClick={this.searchCity}>
-                                <FiSearch />
-                            </div>
+                                className="searchInput" />
+                            {city.length > 0 ?
+                                <FiX onClick={() => { setCity("")}} className="clear" />
+                                : <p className="clear"></p>}
+                        </div>
+                        <div className="mic">
+                            <FiMic />
+                        </div>
+                        <div className="search"
+                            onClick={searchCity}>
+                            <FiSearch />
                         </div>
                     </div>
-                    <div className={styles.credit}>
-                        <p >Made with <p className={styles.heart}>♥️</p> by <a rel="noreferrer" href="https://anirudhmahajan.me/" target="_blank">Anirudh Mahajan</a>.</p>
-                    </div>
+                </div>
+                <div className="credit">
+                    <p >Made with <p className="heart">♥️</p> by <a rel="noreferrer" href="https://anirudhmahajan.me/" target="_blank">Anirudh Mahajan</a>.</p>
                 </div>
             </div>
-        );
-    }
-
+        </div>
+    );
 }
 
 export default Home;
