@@ -1,9 +1,10 @@
 import './Style/App.css';
+import Home from "./Components/Home";
 
 function App() {
   return (
     <div>
-      <p>OpenSky</p>
+      <Home />
     </div>
   );
 }
