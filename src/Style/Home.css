@@ -32,11 +32,13 @@ a:active{
 
 .design{
     z-index: -1;
-    filter: blur(3px);
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background-color: whitesmoke;
+    background-color: #f6ac3b;
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 
@@ -83,12 +85,12 @@ a:active{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 7em;
 }
 .searchInput{
     height: 3em;
     width: 24em;
     border-radius: 35px;
-    border: 1px solid #111;
     background-color: rgba(255,255,255,1);
     color: #111;
     font-size: 1em;
@@ -111,8 +113,6 @@ searchInput:hover{
 
 .clear{
     background-color: white;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
     height: 2.5em;
     width: 1em;
     font-size: larger;
@@ -122,8 +122,6 @@ searchInput:hover{
     height: 2.5em;
     width: 2em;
     font-size: larger;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
     background-color: white;
     display: flex;
     align-items: center;
@@ -145,15 +143,41 @@ searchInput:hover{
     padding-right: 0.5em;
     font-size: larger;
     background-color: white;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
-    border-right: 1px solid #111;
     border-radius: 0 35px 35px 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .search:hover{
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
+}
+
+.box {
+    position: fixed;
+    top: 0;
+    transform: rotate(80deg); 
+    left: 0;
+}
+  
+.wave {
+    position: absolute;
+    opacity: .4;
+    width: 1500px;
+    height: 1300px;
+    border-radius: 43%;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+}
+
+.wave.-one {
+    animation: rotate 17000ms infinite linear;
+    opacity: 1;
+    background-color: #4479E1;
+    margin-left: -280px;
+    margin-top: -1100px; 
 }

@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import "../Style/Home.css";
 import logo from "../Asset/opensky.svg";
 import { FiMic, FiSearch, FiX } from "react-icons/fi";
@@ -6,18 +6,21 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
-    let [city,setCity]= useState("");
-    function updateLocation(e){
+    let [city, setCity] = useState("");
+    function updateLocation(e) {
         setCity(e.target.value);
     }
 
-    function searchCity(e){
-        navigate('/weather/'+city);
+    function searchCity(e) {
+        navigate('/weather/' + city);
     }
 
     return (
         <div className="home">
             <div className="design">
+                <div className='box'>
+                    <div className='wave -one'></div>
+                </div>
             </div>
             <div className="glass">
                 <div className="content">
@@ -36,7 +39,7 @@ const Home = () => {
                                 }}
                                 className="searchInput" />
                             {city.length > 0 ?
-                                <FiX onClick={() => { setCity("")}} className="clear" />
+                                <FiX onClick={() => { setCity("") }} className="clear" />
                                 : <p className="clear"></p>}
                         </div>
                         <div className="mic">
