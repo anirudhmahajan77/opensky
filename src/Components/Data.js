@@ -17,8 +17,19 @@ class Data extends Component {
   }
 
   render() {
+    let component;
+    if(this.state.status === 0){
+      component= <p>Loading</p>
+    } else if(this.state.status === 200){
+      component= <p>Success</p>
+    } else {
+      component= <p>Error</p>
+    }
     return (
-      <div><p>{this.state.status} for {this.state.city}</p></div>
+      <div>
+        <p>{this.state.status} for {this.state.city}</p>
+        {component}
+      </div>
     )
   }
 }

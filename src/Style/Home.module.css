@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    
+}
+:root{
+    font-family: 'Segoe UI', sans-serif;
+}
+
+a:link{
+    color: rgba(255,255,255,1);
+    text-decoration: underline;
+}
+a:visited{
+    color: rgba(255, 255, 255, 1);
+}
+a:hover{
+    color: white;
+    text-decoration: underline;
+}
+a:active{
+    color: white;
+}
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.glass{
+    
+    background-color: #202124;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content{
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.credit{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+.info{
+    color: rgba(255, 255, 255, 1);
+}
+
+.heart{
+    display: inline;
+    color: red;
+}
+
+.logo{
+    height: 20em;
+    width: 30em;
+    background-image: url("../Asset/opensky.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}

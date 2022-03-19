@@ -1,0 +1,24 @@
+.history{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.icon{
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+
+.city{
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    padding: 5px 10px 5px 10px;
+    border-radius: 35px;
+    width: fit-content;
+    margin-left: 10px;
+    cursor: pointer;
+    text-align: center;    
+}
