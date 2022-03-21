@@ -1,8 +1,7 @@
 *{
     margin: 0;
-    padding: 0;
-    border: none;
-    
+    padding: 0;   
+    border: 0px solid white;
 }
 :root{
     font-family: 'Segoe UI', sans-serif;
@@ -131,4 +130,8 @@ a:active{
     right: 26%;
     transform: rotate(-40deg);
     background-image: url("../Asset/star.png");
+}
+.fix{
+    margin-top: -50px;
+    margin-bottom: 15px;
 }

@@ -29,7 +29,9 @@ const Home = () => {
                 <div className={styles.content}>
                     <div className={styles.logo} data-img-url={logo}></div>
                     <div className={styles.searchBar}>
+                        <div className={styles.fix}>
                         <SearchBar />
+                        </div>
                         <History />
                     </div>
                 </div>

@@ -1,19 +1,52 @@
-import React, { useState } from 'react'
-import { FiMic, FiSearch, FiX } from "react-icons/fi";
+import React, { useEffect, useState } from 'react'
+import { FiMic, FiSearch, FiX, FiMicOff } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
-import styles from "../Style/SearchBar.module.css"
+import styles from "../Style/SearchBar.module.css";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert severity="error" elevation={6} ref={ref} variant="filled" {...props} sx={{ width: '100%', color:"white",}}/>;
+    return <MuiAlert severity="error" elevation={6} ref={ref} variant="filled" {...props} sx={{ width: '100%', color: "white", }} />;
 });
 
-const SearchBar = () => {
-
+const SearchBar = (props) => {
     let [city, setCity] = useState("");
+    let [modal, setModal] = useState(false);
+    let [speech, setSpeech] = useState(true);
     let [helper, setHelper] = useState(false);
+
+    const handleClose = () => {
+        setModal(false);
+        stopHandle();
+        resetTranscript();
+    };
+    const handleOpen = () => { setModal(true) };
     const navigate = useNavigate();
+    const { transcript, resetTranscript } = useSpeechRecognition();
+    const [isListening, setIsListening] = useState(false);
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'white',
+        boxShadow: 24,
+        p: 4,
+    };
+
+    useEffect(() => {
+        if (props.city !== undefined) {
+            setCity(props.city);
+        }
+        if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+            setSpeech(false)
+        }
+    }, [props.city])
 
     const updateLocation = (e) => {
         setCity(e.target.value)
@@ -23,6 +56,7 @@ const SearchBar = () => {
         if (city.length !== 0) {
             setHelper(false)
             navigate('/weather/' + city);
+            window.location.reload();
             let cities = JSON.parse(window.localStorage.getItem('cities'));
             if (cities === null) {
                 let ct = [];
@@ -44,15 +78,38 @@ const SearchBar = () => {
         }
     }
 
+    const searchMic = () => {
+        stopHandle();
+        resetTranscript();
+        handleClose();
+        navigate('/weather/' + transcript.replace('.', ''));
+        window.location.reload();
+    }
+
+    const handleListing = () => {
+        setIsListening(true);
+        SpeechRecognition.startListening({
+            continuous: true,
+        });
+    };
+    const stopHandle = () => {
+        setIsListening(false);
+        SpeechRecognition.stopListening();
+    };
+    const handleReset = () => {
+        stopHandle();
+        resetTranscript('');
+    };
+
     return (
         <div className={styles.container}>
-            {helper ? 
-            <Snackbar className={styles.helper} open={helper} autoHideDuration={5000} onClose={()=>{setHelper(false)}}>
-            <Alert onClose={()=>{setHelper(false)}} >
-              Please Enter City Name!
-            </Alert>
-          </Snackbar>
-            : null}
+            {helper ?
+                <Snackbar className={styles.helper} open={helper} autoHideDuration={5000} onClose={() => { setHelper(false) }}>
+                    <Alert onClose={() => { setHelper(false) }} >
+                        Please Enter City Name!
+                    </Alert>
+                </Snackbar>
+                : null}
             <div className={styles.s}>
                 <input
                     type="text"
@@ -68,16 +125,55 @@ const SearchBar = () => {
                 {city.length > 0 ?
                     <FiX onClick={() => { setCity('') }} className={styles.clear} />
                     : <p className={styles.clear}></p>}
-                <div className={styles.mic}>
-                    <FiMic />
-                </div>
+                {speech ?
+                    <div className={styles.mic}>
+                        <FiMic onClick={handleOpen} />
+                        <Modal
+                            open={modal}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                        >
+                            <Box sx={style}>
+                                <div className="microphone-wrapper">
+                                    {transcript && (
+                                        <div className="microphone-result-container">
+                                            <div className="microphone-result-text">{transcript}</div>
+                                        </div>
+                                    )}
+                                    <div className="microphone-status">
+                                        {isListening ? "Listening........." : "Click to start Listening"}
+                                    </div>
+                                    {isListening ?
+                                        <button className="microphone-stop btn" onClick={stopHandle}>
+                                            <FiMicOff />
+                                        </button> :
+                                        <div className="mircophone-container">
+                                            <div
+                                                className="microphone-icon-container"
+                                                onClick={handleListing}
+                                            >
+                                                <FiMic />
+                                            </div>
+                                        </div>
+                                    }
+                                    <div>
+                                        <div className="microphone-reset btn" onClick={handleReset}>
+                                            Reset
+                                        </div>
+                                        <div onClick={searchMic}>Search</div></div>
+                                </div>
+                            </Box>
+                        </Modal>
+                    </div>
+                    : null}
                 <div className={styles.search}
                     onClick={searchCity}>
                     <FiSearch />
                 </div>
             </div>
 
-        </div>
+        </div >
     )
 }
 

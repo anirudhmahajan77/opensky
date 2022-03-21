@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {useParams} from 'react-router-dom';
-import Data from './Data'
+import Data from './Data';
+import Header from "./Header";
 
 
 export class Weather extends Component {
@@ -9,7 +10,10 @@ export class Weather extends Component {
         const Wrapper = (props) => {
             const params = useParams();
             return(
+                <>
+                <Header city={params.city}/>
                 <Data city={params.city}/>
+                </>
             )
         }
 

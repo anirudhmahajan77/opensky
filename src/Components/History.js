@@ -24,9 +24,9 @@ const History = () => {
 
   return (
     <div className={styles.history}>{
-      cities.map((city) => {
+      cities.map((city,index) => {
         return (
-          city.length !== 0 ? <div className={styles.city} onClick={() => searchCity(city)}>
+          city.length !== 0 ? <div key={index} className={styles.city} onClick={() => searchCity(city)}>
             {res ? <FiClock className={styles.icon} /> : <FiCompass className={styles.icon}/>}{city}
           </div> : null
         )

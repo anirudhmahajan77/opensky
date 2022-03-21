@@ -1,0 +1,40 @@
+.container{
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.svg{
+    height: 40em;
+    width: 40em;
+    background-image: url("../Asset/man.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.headline{
+    font-size: 5em;
+}
+.message{
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.action{
+    border: 1px solid whitesmoke;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: black;
+    width: fit-content;
+    padding: 7px 25px;
+    border-radius: 45px;
+}
+.action:hover{
+    background-color: transparent;
+    color: white;
+}
