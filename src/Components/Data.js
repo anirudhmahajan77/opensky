@@ -31,6 +31,7 @@ class Data extends Component {
     } else {
       Component = <ErrorData />
     }
+  
     return (
       <div className={styles.data}>
         {Component}

@@ -85,3 +85,36 @@ searchInput:hover{
     margin-left: 15px;
     margin-bottom: 5px;
 }
+.microphoneStatus{
+    font-size: x-large;
+    color: #202124;
+}
+.micIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    background-color: tomato;
+    border-radius: 50%;
+    color: #202124;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.btnHolder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.actBtn{
+    border: none;
+    background-color: #eac84a;
+    padding: 5px 10px;
+    width: fit-content;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: larger;
+    margin: 0 5px;
+}

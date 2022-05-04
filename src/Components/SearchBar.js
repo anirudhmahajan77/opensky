@@ -36,6 +36,7 @@ const SearchBar = (props) => {
         width: 400,
         bgcolor: 'white',
         boxShadow: 24,
+        borderRadius: 1,
         p: 4,
     };
 
@@ -135,33 +136,35 @@ const SearchBar = (props) => {
                             aria-describedby="modal-modal-description"
                         >
                             <Box sx={style}>
-                                <div className="microphone-wrapper">
+                                <div className={styles.microphoneWrapper}>
                                     {transcript && (
                                         <div className="microphone-result-container">
                                             <div className="microphone-result-text">{transcript}</div>
                                         </div>
                                     )}
-                                    <div className="microphone-status">
+                                    <div className={styles.microphoneStatus}>
                                         {isListening ? "Listening........." : "Click to start Listening"}
                                     </div>
-                                    {isListening ?
-                                        <button className="microphone-stop btn" onClick={stopHandle}>
-                                            <FiMicOff />
-                                        </button> :
-                                        <div className="mircophone-container">
+                                    <div className={styles.btnHolder}>
+                                        {isListening ?
+                                            <div onClick={stopHandle} className={styles.micIcon}>
+                                                    <FiMicOff />
+                                                </div>
+                                             :
                                             <div
-                                                className="microphone-icon-container"
+                                                className={styles.micIcon}
                                                 onClick={handleListing}
                                             >
                                                 <FiMic />
                                             </div>
-                                        </div>
-                                    }
-                                    <div>
-                                        <div className="microphone-reset btn" onClick={handleReset}>
+
+                                        }
+                                    </div>
+                                    <div className={styles.btnHolder}>
+                                        <div className={styles.actBtn} onClick={handleReset}>
                                             Reset
                                         </div>
-                                        <div onClick={searchMic}>Search</div></div>
+                                        <div className={styles.actBtn} onClick={searchMic}>Search</div></div>
                                 </div>
                             </Box>
                         </Modal>

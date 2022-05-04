@@ -76,6 +76,8 @@
     color: #bdc1c6;
     height: auto;
     width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .forecastleft{
     display: flex;
@@ -109,6 +111,7 @@
     color: #bdc1c6;
     height: auto;
     width: 20vw;
+    margin-bottom: 5px;
 }
 .heading{
     font-size: 1.3em;

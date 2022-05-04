@@ -20,7 +20,7 @@ class SuccessData extends Component {
               <p>{this.props.info.forecast.forecastday[1].day.condition.text}</p>
               </div>
               <div className={styles.forecastright}>
-                  <p className={styles.fix}>Avg. Temp:&nbsp;{this.props.info.forecast.forecastday[1].day.avgtemp_c}&deg;</p>
+                  <p className={styles.fix}>Temp:&nbsp;{this.props.info.forecast.forecastday[1].day.avgtemp_c}&deg;</p>
                   <p className={styles.fix}>Humidity:&nbsp;{this.props.info.forecast.forecastday[1].day.avghumidity}</p>
                   <p className={styles.fix}>UV:&nbsp;{this.props.info.forecast.forecastday[1].day.uv}</p>
                   <p className={styles.fix}>Sunrise:&nbsp;{this.props.info.forecast.forecastday[1].astro.sunrise}</p>
@@ -33,7 +33,7 @@ class SuccessData extends Component {
               <p>{this.props.info.forecast.forecastday[2].day.condition.text}</p>
               </div>
               <div className={styles.forecastright}>
-                  <p className={styles.fix}>Avg. Temp:&nbsp;{this.props.info.forecast.forecastday[2].day.avgtemp_c}&deg;</p>
+                  <p className={styles.fix}>Temp:&nbsp;{this.props.info.forecast.forecastday[2].day.avgtemp_c}&deg;</p>
                   <p className={styles.fix}>Humidity:&nbsp;{this.props.info.forecast.forecastday[2].day.avghumidity}</p>
                   <p className={styles.fix}>UV:&nbsp;{this.props.info.forecast.forecastday[2].day.uv}</p>
                   <p className={styles.fix}>Sunrise:&nbsp;{this.props.info.forecast.forecastday[2].astro.sunrise}</p>
