@@ -34,7 +34,7 @@ class SuccessData extends Component {
       if(isDay === 1){
         return Cloudy;
       } else{
-
+        return CloudyNight;
       }
     }
     else if(code === 1072 || code === 1216 || code === 1219 || code === 1222 || code === 1225 || code === 1237 || code === 1258){
