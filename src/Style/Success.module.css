@@ -29,8 +29,8 @@
 }
 
 .icon{
-    height: 200px;
-    width: 200px;    
+    height: 14em;
+    width: auto;    
     background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -43,8 +43,8 @@
 }
 
 .foreicon{
-    height: 60px;
-    width: 60px;    
+    height: 4em;
+    width: auto;    
     margin: 5px 0 5px 0;
     background-repeat: no-repeat;
 	background-position: center;
