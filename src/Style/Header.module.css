@@ -29,3 +29,39 @@
     margin-right: 4%;
     width: fit-content;
 }
+
+@media screen and (max-width:1100px) {
+    .header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+    }
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo{
+        margin-bottom: -40px;
+        margin-top: -40px;
+    }
+    .search{
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media screen and (max-width:650px) {
+    .header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+    }
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
