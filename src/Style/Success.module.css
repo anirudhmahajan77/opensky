@@ -145,6 +145,9 @@
         flex-direction: column;
     }
     .right{
-        margin-top: 40%;
+        margin-top: 80%;
+    }
+    .current{
+        width: 90%;
     }
 }
