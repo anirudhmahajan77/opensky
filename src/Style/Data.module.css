@@ -3,3 +3,16 @@
     width: 100vw;
     height: 86vh;
 }
+
+@media screen and (max-width:1100px) {
+    .data{
+        height: 77vh;
+    }
+    
+}
+
+@media screen and (max-width:650px) {
+    .data{
+        height: 86vh;
+    }
+}

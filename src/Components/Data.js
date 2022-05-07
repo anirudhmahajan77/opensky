@@ -31,7 +31,9 @@ class Data extends Component {
     } else {
       Component = <ErrorData />
     }
-  
+
+    // FIXME:
+    Component = <ErrorData/>
     return (
       <div className={styles.data}>
         {Component}

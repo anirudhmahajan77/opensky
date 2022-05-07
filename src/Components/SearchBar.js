@@ -115,7 +115,7 @@ const SearchBar = (props) => {
                 <input
                     type="text"
                     value={city}
-                    placeholder={`Search Any Location Eg."Jammu"`}
+                    placeholder={`Search Any Location`}
                     onChange={updateLocation}
                     onKeyPress={(e) => {
                         if (e.key === 'Enter') {
