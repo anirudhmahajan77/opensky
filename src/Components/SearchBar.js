@@ -18,8 +18,8 @@ const SearchBar = (props) => {
     let [speech, setSpeech] = useState(true);
     let [helper, setHelper] = useState(false);
 
-    const handleClose = () => {
-        setModal(false);
+    const handleClose = async () => {
+        await setModal(false);
         stopHandle();
         resetTranscript();
     };
@@ -33,7 +33,7 @@ const SearchBar = (props) => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: '32%',
         bgcolor: 'white',
         boxShadow: 24,
         borderRadius: 1,
@@ -128,7 +128,9 @@ const SearchBar = (props) => {
                     : <p className={styles.clear}></p>}
                 {speech ?
                     <div className={styles.mic}>
+                        <div className={styles.speech}>
                         <FiMic onClick={handleOpen} />
+                        </div>
                         <Modal
                             open={modal}
                             onClose={handleClose}
@@ -136,7 +138,7 @@ const SearchBar = (props) => {
                             aria-describedby="modal-modal-description"
                         >
                             <Box sx={style}>
-                                <div className={styles.microphoneWrapper}>
+                                <div >
                                     {transcript && (
                                         <div className="microphone-result-container">
                                             <div className="microphone-result-text">{transcript}</div>

@@ -118,7 +118,20 @@ searchInput:hover{
     font-size: larger;
     margin: 0 5px;
 }
-
+.speech{
+    font-size: 16px;
+}
+.microphoneWrapper{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 30em;
+    height: 20em;
+    background-color: #fff;
+    box-shadow: 24px;
+    border-radius: 4px;
+    padding: 20px 30px;
+}
 
 @media screen and (max-width:1100px) {
     
@@ -131,6 +144,6 @@ searchInput:hover{
     }
     .mic{
         height: 1.75;
-        width: 0.5em;
+        width: 2em;
     }
 }
