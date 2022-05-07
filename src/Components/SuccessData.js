@@ -141,10 +141,10 @@ class SuccessData extends Component {
           </div>
           <div className={styles.current}>
             <p className={styles.heading}>Air Quality Index</p>
-            <p className={styles.topic}>Sulphur dioxide (μg/m3):&nbsp;{this.props.info.current.air_quality.so2}</p>
-            <p className={styles.topic}>Ozone (μg/m3):&nbsp;{this.props.info.current.air_quality.o3}</p>
-            <p className={styles.topic}>PM2.5 (μg/m3):&nbsp;{this.props.info.current.air_quality.pm2_5}</p>
-            <p className={styles.topic}>Carbon Monoxide (μg/m3):&nbsp;{this.props.info.current.air_quality.co}</p>
+            <p className={styles.topic}>Sulphur dioxide (μg/m3):&nbsp;{this.props.info.current.air_quality.so2.toFixed(2)}</p>
+            <p className={styles.topic}>Ozone (μg/m3):&nbsp;{this.props.info.current.air_quality.o3.toFixed(2)}</p>
+            <p className={styles.topic}>PM2.5 (μg/m3):&nbsp;{this.props.info.current.air_quality.pm2_5.toFixed(2)}</p>
+            <p className={styles.topic}>Carbon Monoxide (μg/m3):&nbsp;{this.props.info.current.air_quality.co.toFixed(2)}</p>
           </div>
           <div className={styles.current}>
             <p className={styles.heading}>Astronomy</p>

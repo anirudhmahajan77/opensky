@@ -2,17 +2,18 @@
     background-color: #202124;
     width: 100vw;
     height: 86vh;
+    min-height: fit-content;
 }
 
 @media screen and (max-width:1100px) {
     .data{
-        height: 77vh;
+        height: 100vh;
     }
     
 }
 
 @media screen and (max-width:650px) {
     .data{
-        height: 86vh;
+        height: 230vh;
     }
 }

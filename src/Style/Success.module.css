@@ -122,3 +122,29 @@
 .topic{
     margin: 2px;
 }
+
+@media screen and (max-width:1100px) {
+    .forecastWrapper{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .icon{
+        margin: 30px 0;
+    }
+    .forecast{
+        margin-top: 20px;
+    }
+    .current{
+        width: 50%;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .container{
+        flex-direction: column;
+    }
+    .right{
+        margin-top: 40%;
+    }
+}
