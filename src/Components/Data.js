@@ -23,7 +23,7 @@ class Data extends Component {
   }
 
   render() {
-    let Component;
+    let Component =<LoadingData/>;
     if (this.state.status === 0) {
       Component = <LoadingData />
     } else if (this.state.status === 200) {

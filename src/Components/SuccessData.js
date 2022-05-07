@@ -78,7 +78,6 @@ class SuccessData extends Component {
   }
 
   render() {
-
     let currentImage;
     let tomorrowImage;
     let dayAfterTomorrowImage;
